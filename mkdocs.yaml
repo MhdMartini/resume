@@ -1,0 +1,28 @@
+site_name: Resume
+theme:
+  name: material
+  # logo: assets/logo.png
+  features:
+  - navigation.footer
+
+markdown_extensions:
+- attr_list
+- pymdownx.emoji:
+    emoji_index: !!python/name:material.extensions.emoji.twemoji ""
+    emoji_generator: !!python/name:material.extensions.emoji.to_svg ""
+
+extra:
+  generator: false
+  social:
+  - icon: fontawesome/brands/linkedin
+    link: https://www.linkedin.com/in/mohamed-martini/
+    name: LinkedIn
+  - icon: fontawesome/brands/github
+    link: https://github.com/MhdMartini
+    name: Github
+  - icon: material/email
+    name: mhdmart1@gmail.com
+    link: mailto:mhdmart1@gmail.com
+
+extra_css:
+- stylesheets/extra.css
