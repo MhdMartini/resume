@@ -1,0 +1,34 @@
+name: ci-docs
+description: Builds project documentation with mkdocs.
+
+on:
+  workflow_call:
+    inputs:
+      version:
+        description: 'docs version'
+        type: string
+        required: true
+  release:
+    types: [created]
+
+jobs:
+  build-docs:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - uses: pdm-project/setup-pdm@v4.2
+      with:
+        python-version: '3.11'
+
+    - name: Install dependencies
+      run: pdm sync -dG docs --skip=:all
+
+    - run: pdm run mkdocs build
+
+    - name: publish website
+      if: github.event_name == 'release'
+      run: |
+        git config user.name ci-bot
+        git config user.email ci-bot@example.com
+        mike deploy ${{ inputs.version }} latest --update-aliases --push

@@ -1,0 +1,106 @@
+name: ci-release
+description: Release.
+
+on:
+  workflow_call:
+    inputs:
+      dry-run:
+        description: 'Perform a dry run?'
+        type: boolean
+        required: false
+        default: true
+
+    outputs:
+      year:
+        description: "The year of the release"
+        value: ${{ jobs.versioning.outputs.year }}
+      month:
+        description: "The month of the release"
+        value: ${{ jobs.versioning.outputs.month }}
+      day:
+        description: "The day of the release"
+        value: ${{ jobs.versioning.outputs.day }}
+      date:
+        description: "The full version date (YYYY.MM.DD)"
+        value: ${{ jobs.versioning.outputs.date }}
+
+jobs:
+  versioning:
+    runs-on: ubuntu-latest
+    outputs:
+      year: ${{ steps.date.outputs.year }}
+      month: ${{ steps.date.outputs.month }}
+      day: ${{ steps.date.outputs.day }}
+      date: ${{ steps.date.outputs.date }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Get current date
+        id: date
+        run: |
+          today=$(date +'%Y.%m.%d')
+          year=$(date +'%Y')
+          month=$(date +'%m')
+          day=$(date +'%d')
+          echo "year=$year" >> $GITHUB_ENV
+          echo "month=$month" >> $GITHUB_ENV
+          echo "day=$day" >> $GITHUB_ENV
+          echo "date=$today" >> $GITHUB_ENV
+          echo "Current date: $today"
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install toml
+
+      - name: Update version in pyproject.toml
+        shell: python
+        run: |
+          import toml
+          from datetime import date
+
+          # Load pyproject.toml
+          pyproject_path = 'pyproject.toml'
+          today = date.today()
+          new_version = f'{today.year}.{today.month}.{today.day}'
+
+          # Update the version field
+          with open(pyproject_path, 'r') as f:
+              pyproject = toml.load(f)
+
+          pyproject['project']['version'] = new_version
+
+          # Write the updated pyproject.toml back
+          with open(pyproject_path, 'w') as f:
+              toml.dump(pyproject, f)
+
+          print(f'Updated version to {new_version} in pyproject.toml')
+          
+      - name: Dry run check
+        if: ${{ inputs.dry-run == true }}
+        run: |
+          echo "Dry run: Skipping release publishing."
+
+      - name: Publish release
+        if: ${{ inputs.dry-run == 'false' }}
+        run: |
+          echo "Publishing release with version ${{ steps.date.outputs.date }}"
+          git add pyproject.toml
+          git commit -m "Bump version: ${{ steps.date.outputs.date }}"
+          git tag -a "${{ steps.date.outputs.date }}"
+          git push origin main
+          git push --tags
+          
+      - name: Output version details
+        run: |
+          echo "Year: ${{ steps.date.outputs.year }}"
+          echo "Month: ${{ steps.date.outputs.month }}"
+          echo "Day: ${{ steps.date.outputs.day }}"
+          echo "Date: ${{ steps.date.outputs.date }}"
