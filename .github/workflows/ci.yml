@@ -34,18 +34,17 @@ jobs:
           year=$(date +'%Y')
           month=$(date +'%m')
           day=$(date +'%d')
-          echo "year=$year" >> $GITHUB_ENV
-          echo "month=$month" >> $GITHUB_ENV
-          echo "day=$day" >> $GITHUB_ENV
-          echo "date=$today" >> $GITHUB_ENV
-          echo "Current date: $today"
+          echo "::set-output name=year::$year"
+          echo "::set-output name=month::$month"
+          echo "::set-output name=day::$day"
+          echo "::set-output name=date::$today"
           
       - name: Output version details
         run: |
-          echo "Year: ${{ env.year }}"
-          echo "Month: ${{ env.month }}"
-          echo "Day: ${{ env.day }}"
-          echo "Date: ${{ env.date }}"
+          echo "Year: ${{ steps.date.outputs.year }}"
+          echo "Month: ${{ steps.date.outputs.month }}"
+          echo "Day: ${{ steps.date.outputs.day }}"
+          echo "Date: ${{ steps.date.outputs.date }}"
 
   print-date:
     needs: [get-date]
