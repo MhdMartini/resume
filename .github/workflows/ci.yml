@@ -28,6 +28,7 @@ jobs:
     secrets: inherit
     with:
       version: ${{ needs.release-dry-run.outputs.year }}
+      dry-run: true
 
   check:  # This job does nothing and is only used for the branch protection
     if: always()
@@ -49,5 +50,10 @@ jobs:
     if: needs.check.outputs.result == 'success' && github.ref_name == 'main'
     uses: ./.github/workflows/ci-release.yml
     secrets: inherit
-    with: 
-      dry-run: false
+
+  publish-docs:
+    needs: [release]
+    uses: ./.github/workflows/ci-docs.yml
+    secrets: inherit
+    with:
+      version: ${{ needs.release.outputs.year }}

@@ -8,6 +8,10 @@ on:
         description: 'docs version'
         type: string
         required: true
+      dry-run:
+        type: boolean
+        required: false
+        default: false
   release:
     types: [created]
 
