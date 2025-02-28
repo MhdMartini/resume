@@ -25,6 +25,8 @@ extra:
   - icon: material/email
     name: mhdmart1@gmail.com
     link: mailto:mhdmart1@gmail.com
+  version:
+    provider: mike
 
 extra_javascript:
 - javascripts/katex.js
