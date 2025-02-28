@@ -32,6 +32,5 @@ jobs:
       if: inputs.dry-run == false
       run: |
         git config --global user.name "${{ github.actor }}"
-        git merge origin/gh-pages
         git config --global user.email "${{ github.actor }}@users.noreply.github.com"
         pdm run mike deploy ${{ inputs.version }} latest --update-aliases --push
