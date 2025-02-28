@@ -14,6 +14,9 @@ markdown_extensions:
     generic: true
 
 extra:
+  version:
+    provider: mike
+    default: latest
   generator: false
   social:
   - icon: fontawesome/brands/linkedin
@@ -25,9 +28,6 @@ extra:
   - icon: material/email
     name: mhdmart1@gmail.com
     link: mailto:mhdmart1@gmail.com
-  version:
-    provider: mike
-    default: latest
 
 extra_javascript:
 - javascripts/katex.js
