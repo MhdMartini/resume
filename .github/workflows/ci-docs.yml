@@ -33,7 +33,7 @@ jobs:
     - name: publish website
       if: inputs.dry-run == false
       run: |
-        echo ${{ inputs.version }}
+        echo "${{ inputs.version }}""
         git config --global user.name "${{ github.actor }}"
         git config --global user.email "${{ github.actor }}@users.noreply.github.com"
         pdm run mike deploy ${{ inputs.version }} --push
