@@ -15,22 +15,48 @@ env:
   COLUMNS: 120
 
 jobs:
+  get-date:
+    runs-on: ubuntu-latest
+    outputs:
+      year: ${{ steps.date.outputs.year }}
+      month: ${{ steps.date.outputs.month }}
+      day: ${{ steps.date.outputs.day }}
+      date: ${{ steps.date.outputs.date }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Get current date
+        id: date
+        run: |
+          today=$(date +'%Y.%m.%d')
+          year=$(date +'%Y')
+          month=$(date +'%m')
+          day=$(date +'%d')
+          echo "year=$year" >> $GITHUB_ENV
+          echo "month=$month" >> $GITHUB_ENV
+          echo "day=$day" >> $GITHUB_ENV
+          echo "date=$today" >> $GITHUB_ENV
+          echo "Current date: $today"
 
   release-dry-run:
+    needs: [get-date]
     uses: ./.github/workflows/ci-release.yml
     secrets: inherit
     with:
+      version: ${{ needs.get-date.outputs.date }}
       dry-run: true
 
   build-docs:
-    needs: [release-dry-run]
+    needs: [get-date]
     uses: ./.github/workflows/ci-docs.yml
     secrets: inherit
     with:
-      version: ${{ needs.release-dry-run.outputs.year }}
+      version: ${{ needs.get-date.outputs.year }}
       dry-run: true
 
-  check:  # This job does nothing and is only used for the branch protection
+  check:
     if: always()
     outputs:
       result: ${{ steps.all-green.outputs.result }}
@@ -46,14 +72,16 @@ jobs:
           jobs: ${{ toJSON(needs) }}
 
   release:
-    needs: [check]
+    needs: [get-date, check]
     if: needs.check.outputs.result == 'success' && github.ref_name == 'main'
     uses: ./.github/workflows/ci-release.yml
     secrets: inherit
+    with:
+      version: ${{ needs.get-date.outputs.date }}
 
   publish-docs:
-    needs: [release]
+    needs: [get-date]
     uses: ./.github/workflows/ci-docs.yml
     secrets: inherit
     with:
-      version: ${{ needs.release.outputs.year }}
+      version: ${{ needs.get-date.outputs.year }}

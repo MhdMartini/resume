@@ -4,51 +4,22 @@ description: Release.
 on:
   workflow_call:
     inputs:
+      version:
+        type: string
+        required: true
       dry-run:
         description: 'Perform a dry run?'
         type: boolean
         required: false
         default: false
 
-    outputs:
-      year:
-        description: "The year of the release"
-        value: ${{ jobs.versioning.outputs.year }}
-      month:
-        description: "The month of the release"
-        value: ${{ jobs.versioning.outputs.month }}
-      day:
-        description: "The day of the release"
-        value: ${{ jobs.versioning.outputs.day }}
-      date:
-        description: "The full version date (YYYY.MM.DD)"
-        value: ${{ jobs.versioning.outputs.date }}
-
 jobs:
   versioning:
     runs-on: ubuntu-latest
-    outputs:
-      year: ${{ steps.date.outputs.year }}
-      month: ${{ steps.date.outputs.month }}
-      day: ${{ steps.date.outputs.day }}
-      date: ${{ steps.date.outputs.date }}
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-
-      - name: Get current date
-        id: date
-        run: |
-          today=$(date +'%Y.%m.%d')
-          year=$(date +'%Y')
-          month=$(date +'%m')
-          day=$(date +'%d')
-          echo "year=$year" >> $GITHUB_ENV
-          echo "month=$month" >> $GITHUB_ENV
-          echo "day=$day" >> $GITHUB_ENV
-          echo "date=$today" >> $GITHUB_ENV
-          echo "Current date: $today"
 
       - name: Set up Python
         uses: actions/setup-python@v3
@@ -82,30 +53,18 @@ jobs:
               toml.dump(pyproject, f)
 
           print(f'Updated version to {new_version} in pyproject.toml')
-          
-      - name: Dry run check
-        if: ${{ inputs.dry-run == true }}
-        run: |
-          echo "Dry run: Skipping release publishing."
 
       - name: Publish release
         if: inputs.dry-run == false
         run: |
-          echo "Publishing release with version ${{ env.date }}"          
+          echo "Publishing release with version ${{ inputs.version }}"          
           git config --global user.name "${{ github.actor }}"
           git config --global user.email "${{ github.actor }}@users.noreply.github.com"
 
           if [[ -n "$(git status --porcelain pyproject.toml)" ]]; then
             git add pyproject.toml
-            git commit -m "Bump version: ${{ env.date }}"
+            git commit -m "Bump version: ${{ inputs.version }}"
             git push origin main
           else
             echo "No changes detected in pyproject.toml, skipping commit."
           fi
-          
-      - name: Output version details
-        run: |
-          echo "Year: ${{ env.year }}"
-          echo "Month: ${{ env.month }}"
-          echo "Day: ${{ env.day }}"
-          echo "Date: ${{ env.date }}"
