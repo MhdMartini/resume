@@ -91,16 +91,16 @@ jobs:
       - name: Publish release
         if: ${{ inputs.dry-run == 'false' }}
         run: |
-          echo "Publishing release with version ${{ steps.date.outputs.date }}"
+          echo "Publishing release with version ${{ env.date }}"
           git add pyproject.toml
-          git commit -m "Bump version: ${{ steps.date.outputs.date }}"
-          git tag -a "${{ steps.date.outputs.date }}"
+          git commit -m "Bump version: ${{ env.date }}"
+          git tag -a "${{ env.date }}"
           git push origin main
           git push --tags
           
       - name: Output version details
         run: |
-          echo "Year: ${{ steps.date.outputs.year }}"
-          echo "Month: ${{ steps.date.outputs.month }}"
-          echo "Day: ${{ steps.date.outputs.day }}"
-          echo "Date: ${{ steps.date.outputs.date }}"
+          echo "Year: ${{ env.year }}"
+          echo "Month: ${{ env.month }}"
+          echo "Day: ${{ env.day }}"
+          echo "Date: ${{ env.date }}"
