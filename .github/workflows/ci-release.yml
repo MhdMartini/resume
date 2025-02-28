@@ -89,7 +89,7 @@ jobs:
           echo "Dry run: Skipping release publishing."
 
       - name: Publish release
-        if: ${{ inputs.dry-run == 'false' }}
+        if: inputs.dry-run == false
         run: |
           echo "Publishing release with version ${{ env.date }}"
           git add pyproject.toml
