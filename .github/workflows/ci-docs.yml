@@ -37,4 +37,4 @@ jobs:
         git config --global user.name "${{ github.actor }}"
         git config --global user.email "${{ github.actor }}@users.noreply.github.com"
         pdm run mike deploy ${{ inputs.version }} latest --update-aliases --push
-        pdm run mike set-default latest
+        pdm run mike set-default ${{ inputs.version }}
