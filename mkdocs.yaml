@@ -41,6 +41,11 @@ markdown_extensions:
 - pymdownx.arithmatex:
     generic: true
 
+plugins:
+- mike:
+    alias_type: symlink
+    canonical_version: latest
+
 extra:
   version:
     provider: mike
