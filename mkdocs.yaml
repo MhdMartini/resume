@@ -27,6 +27,7 @@ extra:
     link: mailto:mhdmart1@gmail.com
   version:
     provider: mike
+    default: latest
 
 extra_javascript:
 - javascripts/katex.js
