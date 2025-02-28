@@ -61,8 +61,8 @@ jobs:
     outputs:
       result: ${{ steps.all-green.outputs.result }}
     needs:
-      - build-docs
       - release-dry-run
+      - build-docs
     runs-on: ubuntu-latest
     steps:
       - name: Decide whether the needed jobs succeeded or failed
@@ -80,7 +80,7 @@ jobs:
       version: ${{ needs.get-date.outputs.date }}
 
   publish-docs:
-    needs: [get-date]
+    needs: [get-date, check]
     uses: ./.github/workflows/ci-docs.yml
     secrets: inherit
     with:
