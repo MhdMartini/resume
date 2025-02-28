@@ -94,9 +94,7 @@ jobs:
           echo "Publishing release with version ${{ env.date }}"
           git add pyproject.toml
           git commit -m "Bump version: ${{ env.date }}"
-          git tag -a "${{ env.date }}"
           git push origin main
-          git push --tags
           
       - name: Output version details
         run: |

@@ -49,3 +49,5 @@ jobs:
     if: needs.check.outputs.result == 'success' && github.ref_name == 'main'
     uses: ./.github/workflows/ci-release.yml
     secrets: inherit
+    with: 
+      dry-run: false
