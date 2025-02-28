@@ -39,6 +39,22 @@ jobs:
           echo "day=$day" >> $GITHUB_ENV
           echo "date=$today" >> $GITHUB_ENV
           echo "Current date: $today"
+          
+      - name: Output version details
+        run: |
+          echo "Year: ${{ env.year }}"
+          echo "Month: ${{ env.month }}"
+          echo "Day: ${{ env.day }}"
+          echo "Date: ${{ env.date }}"
+
+  print-date:
+    needs: [get-date]
+    runs-on: ubuntu-latest
+    steps:
+      -  run: |
+          echo ${{ needs.get-date.outputs.year }}
+          echo ${{ needs.get-date.outputs.date }}
+
 
   release-dry-run:
     needs: [get-date]
