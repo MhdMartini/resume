@@ -12,8 +12,6 @@ on:
         type: boolean
         required: false
         default: false
-  release:
-    types: [created]
 
 jobs:
   build-docs:
@@ -31,7 +29,7 @@ jobs:
     - run: pdm run mkdocs build
 
     - name: publish website
-      if: github.event_name == 'release'
+      if: inputs.dry-run == false
       run: |
         git config user.name ci-bot
         git config user.email ci-bot@example.com
