@@ -1,5 +1,8 @@
 site_name: Resume
 
+nav:
+- README.md
+
 plugins:
 - mike:
     alias_type: symlink
