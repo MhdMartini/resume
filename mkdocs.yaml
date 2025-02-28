@@ -1,9 +1,39 @@
 site_name: Resume
+
+plugins:
+- mike:
+    alias_type: symlink
+    canonical_version: latest
+
 theme:
   name: material
   # logo: assets/logo.png
   features:
   - navigation.footer
+  palette:
+  # Palette toggle for automatic mode
+  - media: "(prefers-color-scheme)"
+    toggle:
+      icon: material/brightness-auto
+      name: Switch to light mode
+
+  # Palette toggle for light mode
+  - media: "(prefers-color-scheme: light)"
+    scheme: default
+    primary: white
+    accent: indigo
+    toggle:
+      icon: material/brightness-7
+      name: Switch to dark mode
+
+  # Palette toggle for dark mode
+  - media: "(prefers-color-scheme: dark)"
+    scheme: slate
+    primary: black
+    accent: indigo
+    toggle:
+      icon: material/brightness-4
+      name: Switch to system preference
 
 markdown_extensions:
 - attr_list
