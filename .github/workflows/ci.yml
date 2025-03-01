@@ -46,15 +46,6 @@ jobs:
           echo "Day: ${{ steps.date.outputs.day }}"
           echo "Date: ${{ steps.date.outputs.date }}"
 
-  print-date:
-    needs: [get-date]
-    runs-on: ubuntu-latest
-    steps:
-      -  run: |
-          echo ${{ needs.get-date.outputs.year }}
-          echo ${{ needs.get-date.outputs.date }}
-
-
   release-dry-run:
     needs: [get-date]
     uses: ./.github/workflows/ci-release.yml
