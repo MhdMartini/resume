@@ -34,10 +34,10 @@ jobs:
           year=$(date +'%Y')
           month=$(date +'%m')
           day=$(date +'%d')
-          echo "::set-output name=year::$year"
-          echo "::set-output name=month::$month"
-          echo "::set-output name=day::$day"
-          echo "::set-output name=date::$today"
+          echo "year=$year" >> $GITHUB_OUTPUT
+          echo "month=$month" >> $GITHUB_OUTPUT
+          echo "day=$day" >> $GITHUB_OUTPUT
+          echo "date=$today" >> $GITHUB_OUTPUT
           
       - name: Output version details
         run: |

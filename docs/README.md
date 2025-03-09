@@ -26,11 +26,11 @@ header-includes: |
 **Machine Learning Engineer** | Pison Technology <br>
 <small><span style="color: gray;">*Full-time · Oct 2022 - Present · 2 yrs 5 mos*</span></small>
 
-- Ran 1,200+ TensorFlow experiments for sleep stage classification,  improving the baseline F1-score by 13% (ongoing). Developed two custom loss functions to address class imbalance. Implemented a custom attention layer and used it for feature mining, improving performance while reducing the feature set by an order of magnitude.
+- Ran 1,200+ TensorFlow experiments for sleep stage classification, improving the baseline F1-score by 13% (ongoing). Developed two custom loss functions to address class imbalance. Implemented a custom attention layer and used it for feature mining, improving performance while reducing the feature set by an order of magnitude.
 - Developed and optimized real-time biosignal gesture detection models. Wrote Cythonized extension modules, and vectorized bottleneck functions in the gesture pipeline, significantly improving the speed of online prediction and offline modeling.
 - Led a “Hackaweek” project with two colleagues to implement a state-of-the-art [domain-invariant classification network with adversarial training](https://ieeexplore.ieee.org/document/10099164) in PyTorch, following the approach outlined in its original manuscript.
 - Led the adoption of BigQuery as a data warehouse solution to streamline data access and management.
-- Deployed and monitored streaming and batch ML models using Google's Model Registry and Cloud Run Functions. 
+- Deployed and monitored streaming and batch ML models using Google Model Registry and Cloud Run Functions. 
 - Wrote a scalable ETL pipeline using Apache Beam which brought down the compute time of 56 GB of data from 2 days to 15 minutes at a cost of 25 cents.
 - Standardized the Python codebase, CI/CD workflows, and dependency management, enabling seamless collaboration across operating systems. Implemented automated documentation, versioned releases, and platform-specific wheels publishing to Google Artifact Registry.
 - Maintained cross-team communication to ensure consistency and optimal integration of ML solutions.
