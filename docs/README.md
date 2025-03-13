@@ -26,7 +26,7 @@ header-includes: |
 **Machine Learning Engineer** | Pison Technology <br>
 <small><span style="color: gray;">*Full-time · Oct 2022 - Present · 2 yrs 5 mos*</span></small>
 
-- Ran 1,200+ TensorFlow experiments for sleep stage classification, improving the baseline F1-score by 13% (ongoing). Developed two custom loss functions to address class imbalance. Implemented a custom attention layer and used it for feature mining, improving performance while reducing the feature set by an order of magnitude.
+- Ran 1,200+ TensorFlow experiments for sleep stage classification, improving the baseline F1-score by 15% (ongoing). Developed two custom loss functions to address class imbalance. Implemented a custom attention layer and used it for feature mining, improving performance while reducing the feature set by an order of magnitude.
 - Developed and optimized real-time biosignal gesture detection models. Wrote Cythonized extension modules, and vectorized bottleneck functions in the gesture pipeline, significantly improving the speed of online prediction and offline modeling.
 - Led a “Hackaweek” project with two colleagues to implement a state-of-the-art [domain-invariant classification network with adversarial training](https://ieeexplore.ieee.org/document/10099164) in PyTorch, following the approach outlined in its original manuscript.
 - Led the adoption of BigQuery as a data warehouse solution to streamline data access and management.
