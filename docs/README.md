@@ -1,67 +1,65 @@
 ---
-mainfont: Helvetica
+mainfont: Liberation Sans
 mainfontoptions:
-- BoldFont=Helvetica-Bold
-- ItalicFont=Helvetica-Oblique
-- BoldItalicFont=Helvetica-BoldOblique
+- BoldFont=Liberation Sans Bold
+- ItalicFont=Liberation Sans Italic
+- BoldItalicFont=Liberation Sans Bold Italic
+
+linkcolor: blue
+urlcolor: blue
 
 header-includes: |
   \usepackage{enumitem}
-  \setlist[itemize,1]{left=10pt}
-  \setlist[itemize,2]{left=20pt}
+  \usepackage{xcolor}
+  \definecolor{lightgray}{HTML}{808080}
+  \setlist[itemize,1]{label=\textbullet, left=0pt}
+  \setlist[itemize,2]{label=\textbullet, left=2pt}
 ---
 
 # Mohamed Martini
 
-## Skills
+\small\textcolor{lightgray}{\textit{NH | 617-955-4276 | leverai@leverai.tech | linkedin.com/in/mohamed-martini | https://leverai.tech}}\normalsize
 
-- **Machine Learning**: Tensorflow, PyTorch, NumPy, Pandas, Scikit-learn, SciPy
-- **Cloud & Data**: Bigquery, Cloud Storage, Vertex AI, Cloud Functions, Dataflow, Model Registry
-- **ETL**: Apache Beam Python, PySpark
-- **DevOps & CI/CD**: Docker, Github workflows/actions, automated testing, releases, deployment, and documentation.
-- **Python**: Cross-platform dependency management of large codebases, PEP-compliant practices.
+**Skills:** Python, AI/ML (LangChain, LangGraph, TensorFlow, PyTorch), Cloud (GCP - Cloud Run, CloudSQL, Cloud Trace), Data (PostgreSQL, BigQuery, Apache Beam), DevOps (Docker, CI/CD), Web (FastAPI), Flutter.
 
-## Work Experience
 
-**Machine Learning Engineer** | Pison Technology <br>
-<small><span style="color: gray;">*Full-time · Oct 2022 - Present · 2 yrs 5 mos*</span></small>
+### **PROFESSIONAL EXPERIENCE**
 
-- Ran 1,200+ TensorFlow experiments for sleep stage classification, improving the baseline F1-score by 15% (ongoing). Developed two custom loss functions to address class imbalance. Implemented a custom attention layer and used it for feature mining, improving performance while reducing the feature set by an order of magnitude.
-- Developed and optimized real-time biosignal gesture detection models. Wrote Cythonized extension modules, and vectorized bottleneck functions in the gesture pipeline, significantly improving the speed of online prediction and offline modeling.
+**Founder & Principal Engineer** | Lever AI \
+\small\textcolor{lightgray}{\textit{Full-time · July 2025 - Present}}\normalsize
+
+- Founded a consulting and SaaS development LLC specialized in AI-powered, data-driven software solutions.
+- **Showcase Project: Guesstimate: Not Trivia!** ([Google Play](https://play.google.com/store/apps/details?id=tech.leverai.guesstimate))
+  - Designed and shipped a full-stack social estimation game to Google Play, featuring **real-time multiplayer** via Firestore, global leaderboards, and freemium monetization (RevenueCat, Unity Ads).
+  - Built an **LLM-powered ETL pipeline** using smart seed selection and pgvector embeddings for **semantic deduplication**, generating 700+ high-quality, diverse, and fact-checked questions at <1¢ per question.
+  - Architected **real-time, fair question assignment** for multi-player rounds using **optimized SQL**.
+  - Implemented **end-to-end distributed tracing** with OpenTelemetry, correlating Flutter frontend events to FastAPI backend spans via Cloud Trace and Cloud Logging.
+  - Established **GitFlow CI/CD pipelines** with automated testing, and dev/prod building and deployment.
+  - Leveraged AI coding agents to accelerate cross-platform Flutter development while maintaining full architectural oversight of the Python backend.
+
+\vspace{8pt}
+**Machine Learning Engineer III** | Pison Technology \
+\small\textcolor{lightgray}{\textit{Full-time · Oct 2022 - July 2025 · 2 yrs 10 mos}}\normalsize
+
+- **Promoted from MLE to MLE III** in April 2025.
+- Ran 1,200+ TensorFlow experiments for sleep stage classification, improving the baseline F1-score by 15% (ongoing). Developed two custom loss functions to address class imbalance. Implemented a custom attention layer for feature mining, improving performance while reducing the feature set by an order of magnitude.
+- Developed real-time biosignal gesture detection models. Wrote Cythonized extension modules, and vectorized bottleneck functions, significantly improving the speed of online prediction and offline modeling.
 - Led a “Hackaweek” project with two colleagues to implement a state-of-the-art [domain-invariant classification network with adversarial training](https://ieeexplore.ieee.org/document/10099164) in PyTorch, following the approach outlined in its original manuscript.
 - Led the adoption of BigQuery as a data warehouse solution to streamline data access and management.
-- Deployed and monitored streaming and batch ML models using Google Model Registry and Cloud Run Functions. 
+- Deployed and monitored streaming and batch ML models using Google Model Registry and Cloud Functions. 
 - Wrote a scalable ETL pipeline using Apache Beam which brought down the compute time of 56 GB of data from 2 days to 15 minutes at a cost of 25 cents.
-- Standardized the Python codebase, CI/CD workflows, and dependency management, enabling seamless collaboration across operating systems. Implemented automated documentation, versioned releases, and platform-specific wheels publishing to Google Artifact Registry.
+- Standardized the Python codebase, CI/CD workflows, and dependency management, enabling seamless collaboration between colleagues across operating systems.
 - Maintained cross-team communication to ensure consistency and optimal integration of ML solutions.
 
-**Research Assistant** | University of Massachusetts Lowell <br>
-<small><span style="color: gray;">*Part-time · Jan 2021 - June 2022 · 1 yrs 6 mos*</span></small>
+\vspace{8pt}
+**Research Assistant** | UNIVERSITY OF MASSACHUSETTS LOWELL \
+\small\textcolor{lightgray}{\textit{*Jan 2021 – June 2022*}}\normalsize
 
-- Exalabs Team: Researched the literature on multi-agent networks and cooperative dynamics.
-Implemented Reinforcement Learning agents and environments for multi-agent search and rescue (SAR) simulations.
-Analyzed top-down vs. bottom-up cooperation structures, identifying their respective strengths and weaknesses.
-- Advanced Graduate Project: Researched, compared, and recommended edge-compatible image classification, segmentation and object detection solutions using multi-modal data. 
-Learned the YOLOv3 architecture and ran numerous object detection experiments on a computer cluster. 
-Doubled the dataset size through generative AI, public dataset mining, and data augmentation. 
+- **Multi-Agent Systems:** Implemented Reinforcement Learning agents for cooperative multi-agent search and rescue (SAR) simulations.
+- **Computer Vision:** Developed edge-compatible object detection pipelines (YOLOv3), doubling dataset efficacy through Generative AI augmentation.
 
-**Engineering Co-Op** | Rockwell Automation Inc. <br>
-<small><span style="color: gray;">*Full-time · Jan - July 2020 · 6 mos*</span></small>
+### **EDUCATION**
 
-- Co-authored Python hardware test scripts and GUI.
-- Wrote data visualization scripts with Python and Matlab, and discussed results with management.
-
-## Education
-
-- **M.S. Computer Engineering**<small><span style="color: gray;"> | University of Massachusetts Lowell · Jun 2022 · GPA 4.0</span></small>
-- **B.S. Electrical Engineering**<small><span style="color: gray;"> | University of Massachusetts Lowell · May 2021 · GPA 3.8</span></small>
-- **B.S. Biology**<small><span style="color: gray;"> | University of Massachusetts Lowell · Dec 2019 · GPA 3.5</span></small>
-
-
-## References
-
-References available upon request.
-
-<br>
-[Email me :fontawesome-solid-paper-plane:](mailto:mhdmart1@gmail.com){ .md-button }
-[:fontawesome-solid-file-pdf: Download Resume](assets/resume.pdf){ .md-button .md-button--primary }
+**M.S. Computer Engineering** (4.0 GPA) | UMass Lowell | *2022*
+**B.S. Electrical Engineering** (3.8 GPA) | UMass Lowell | *2021*
+**B.S. Biology** | UMass Lowell | *2019*
