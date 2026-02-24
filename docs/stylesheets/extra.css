@@ -1,4 +1,28 @@
 /* Maximum space for text block */
 .md-grid {
     max-width: 90%; /* or 100%, if you want to stretch to full-width */
-}  
+}
+
+/* Subtitle lines (dates, locations) — mirrors \small\textcolor{lightgray} in PDF */
+.subtitle {
+    font-size: 0.85em;
+    color: #808080;
+    font-style: italic;
+}
+
+/* Education table */
+.md-typeset table:not([class]) {
+    border: none;
+    box-shadow: none;
+    font-size: 0.95em;
+}
+
+.md-typeset table:not([class]) th,
+.md-typeset table:not([class]) td {
+    border: none;
+    padding: 2px 12px 2px 0;
+}
+
+.md-typeset table:not([class]) thead tr {
+    background: transparent;
+}

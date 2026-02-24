@@ -19,38 +19,39 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v3
-        with:
-          python-version: '3.11'
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
 
-      - name: Install dependencies
+      - name: Install pandoc and xelatex
         run: |
-          python -m pip install --upgrade pip
-          pip install toml
+          sudo apt-get update -qq
+          sudo apt-get install -y pandoc texlive-xetex texlive-fonts-recommended
+
+      - name: Build PDF
+        run: uv run scripts/build_pdf.py
 
       - name: Update version in pyproject.toml
         shell: python
         run: |
-          import toml
+          import os
           from datetime import date
+          import re
 
-          # Load pyproject.toml
+          # Re-implementing simplified toml update to avoid external dependency for just one field
           pyproject_path = 'pyproject.toml'
           today = date.today()
           new_version = f'{today.year}.{today.month}.{today.day}'
 
-          # Update the version field
           with open(pyproject_path, 'r') as f:
-              pyproject = toml.load(f)
+              content = f.read()
 
-          pyproject['project']['version'] = new_version
+          # Replace version = "..." with the new date-based version
+          new_content = re.sub(r'version = ".*"', f'version = "{new_version}"', content)
 
-          # Write the updated pyproject.toml back
           with open(pyproject_path, 'w') as f:
-              toml.dump(pyproject, f)
+              f.write(new_content)
 
           print(f'Updated version to {new_version} in pyproject.toml')
 
@@ -61,10 +62,10 @@ jobs:
           git config --global user.name "${{ github.actor }}"
           git config --global user.email "${{ github.actor }}@users.noreply.github.com"
 
-          if [[ -n "$(git status --porcelain pyproject.toml)" ]]; then
-            git add pyproject.toml
-            git commit -m "Bump version: ${{ inputs.version }}"
+          git add pyproject.toml docs/assets/resume.pdf
+          if [[ -n "$(git status --cached --porcelain)" ]]; then
+            git commit -m "Release ${{ inputs.version }}: bump version, update PDF"
             git push origin main
           else
-            echo "No changes detected in pyproject.toml, skipping commit."
+            echo "No changes detected, skipping commit."
           fi

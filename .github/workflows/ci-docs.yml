@@ -21,14 +21,14 @@ jobs:
       with:
         fetch-depth: 0
 
-    - uses: pdm-project/setup-pdm@v4.2
-      with:
-        python-version: '3.11'
+    - name: Install uv
+      uses: astral-sh/setup-uv@v5
 
     - name: Install dependencies
-      run: pdm sync -dG docs --skip=:all
+      run: uv sync --group docs
 
-    - run: pdm run mkdocs build
+    - name: Build documentation
+      run: uv run mkdocs build
 
     - name: publish website
       if: inputs.dry-run == false
@@ -36,5 +36,5 @@ jobs:
         echo "${{ inputs.version }}"
         git config --global user.name "${{ github.actor }}"
         git config --global user.email "${{ github.actor }}@users.noreply.github.com"
-        pdm run mike deploy ${{ inputs.version }} latest --update-aliases --push
-        pdm run mike set-default ${{ inputs.version }}
+        uv run mike deploy ${{ inputs.version }} latest --update-aliases --push
+        uv run mike set-default ${{ inputs.version }}
