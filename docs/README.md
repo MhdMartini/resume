@@ -48,4 +48,4 @@
 
 References available upon request.
 
-[Email me :fontawesome-solid-paper-plane:](mailto:leverai@leverai.tech){ .md-button } [:fontawesome-solid-file-pdf: Download Resume](assets/resume.pdf){ .md-button .md-button--primary }
+[:fontawesome-solid-paper-plane: Email me](mailto:leverai@leverai.tech){ .md-button } [:fontawesome-solid-file-pdf: Download Resume](assets/resume.pdf){ .md-button .md-button--primary }
