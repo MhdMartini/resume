@@ -1,6 +1,6 @@
 [project]
 name = "resume"
-version = "2026.2.24"
+version = "2026.2.25"
 description = "Resume"
 dependencies = []
 requires-python = ">=3.10"

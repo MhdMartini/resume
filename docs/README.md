@@ -42,3 +42,10 @@
 
 - **M.S. Computer Engineering** · GPA 4.0 · UMass Lowell, 2022
 - **B.S. Electrical Engineering** · GPA 3.8 · UMass Lowell, 2021
+
+
+### **REFERENCES**
+
+References available upon request.
+
+[Email me :fontawesome-solid-paper-plane:](mailto:leverai@leverai.tech){ .md-button } [:fontawesome-solid-file-pdf: Download Resume](assets/resume.pdf){ .md-button .md-button--primary }
