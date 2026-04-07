@@ -1,4 +1,5 @@
-site_name: Resume
+site_name: Mohamed Martini — Resume
+site_url: https://mhdmartini.github.io/resume/
 
 nav:
 - README.md
@@ -7,6 +8,9 @@ theme:
   name: material
   favicon: assets/logo.png
   logo: assets/logo.png
+  font:
+    text: Inter
+    code: Roboto Mono
   features:
   - navigation.footer
   palette:
@@ -37,20 +41,14 @@ theme:
 markdown_extensions:
 - attr_list
 - md_in_html
+- def_list
 - pymdownx.emoji:
     emoji_index: !!python/name:material.extensions.emoji.twemoji ""
     emoji_generator: !!python/name:material.extensions.emoji.to_svg ""
-- pymdownx.arithmatex:
-    generic: true
 
-plugins:
-- mike:
-    alias_type: symlink
-    canonical_version: latest
+plugins: []
 
 extra:
-  version:
-    provider: mike
   generator: false
   social:
   - icon: fontawesome/brands/linkedin
@@ -58,16 +56,16 @@ extra:
     name: LinkedIn
   - icon: fontawesome/brands/github
     link: https://github.com/MhdMartini
-    name: Github
+    name: GitHub
   - icon: material/email
     name: mhdmart1@gmail.com
     link: mailto:mhdmart1@gmail.com
-
-extra_javascript:
-- javascripts/katex.js
-- https://unpkg.com/katex@0/dist/katex.min.js
-- https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
+  - icon: material/web
+    name: leverai.tech
+    link: https://leverai.tech
 
 extra_css:
 - stylesheets/extra.css
-- https://unpkg.com/katex@0/dist/katex.min.css
+
+extra_javascript:
+- javascripts/custom.js

@@ -1,6 +1,14 @@
 # Resume
 
-[![Built with Material for MkDocs](https://img.shields.io/badge/Material_for_MkDocs-526CFE?style=for-the-badge&logo=MaterialForMkDocs&logoColor=white)](https://squidfunk.github.io/mkdocs-material/)
+My resume as a GitHub Pages [website](https://mhdmartini.github.io/resume/).
 
-This repo publishes my resume as a github pages [website](https://mhdmartini.github.io/resume/latest/). 
+## Local Development
 
+```bash
+uv sync --group docs
+uv run mkdocs serve
+```
+
+## Updating the Resume PDF
+
+Drop your exported PDF into `docs/assets/resume.pdf` and commit.

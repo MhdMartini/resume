@@ -8,86 +8,34 @@ on:
 
 permissions:
   contents: write
-  pull-requests: write
-  pages: write
-
-env:
-  COLUMNS: 120
 
 jobs:
-  get-date:
-    runs-on: ubuntu-latest
-    outputs:
-      year: ${{ steps.date.outputs.year }}
-      month: ${{ steps.date.outputs.month }}
-      day: ${{ steps.date.outputs.day }}
-      date: ${{ steps.date.outputs.date }}
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Get current date
-        id: date
-        run: |
-          today=$(date +'%Y.%m.%d')
-          year=$(date +'%Y')
-          month=$(date +'%m')
-          day=$(date +'%d')
-          echo "year=$year" >> $GITHUB_OUTPUT
-          echo "month=$month" >> $GITHUB_OUTPUT
-          echo "day=$day" >> $GITHUB_OUTPUT
-          echo "date=$today" >> $GITHUB_OUTPUT
-          
-      - name: Output version details
-        run: |
-          echo "Year: ${{ steps.date.outputs.year }}"
-          echo "Month: ${{ steps.date.outputs.month }}"
-          echo "Day: ${{ steps.date.outputs.day }}"
-          echo "Date: ${{ steps.date.outputs.date }}"
-
-  release-dry-run:
-    needs: [get-date]
-    uses: ./.github/workflows/ci-release.yml
-    secrets: inherit
-    with:
-      version: ${{ needs.get-date.outputs.date }}
-      dry-run: true
-
-  build-docs:
-    needs: [get-date]
-    uses: ./.github/workflows/ci-docs.yml
-    secrets: inherit
-    with:
-      version: ${{ needs.get-date.outputs.year }}
-      dry-run: true
-
-  check:
-    if: always()
-    outputs:
-      result: ${{ steps.all-green.outputs.result }}
-    needs:
-      - release-dry-run
-      - build-docs
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Decide whether the needed jobs succeeded or failed
-        uses: re-actors/alls-green@release/v1
-        id: all-green
-        with:
-          jobs: ${{ toJSON(needs) }}
+    - uses: actions/checkout@v4
 
-  release:
-    needs: [get-date, check]
-    if: needs.check.outputs.result == 'success' && github.ref_name == 'main'
-    uses: ./.github/workflows/ci-release.yml
-    secrets: inherit
-    with:
-      version: ${{ needs.get-date.outputs.date }}
+    - name: Install uv
+      uses: astral-sh/setup-uv@v5
 
-  publish-docs:
-    needs: [get-date, check]
-    uses: ./.github/workflows/ci-docs.yml
-    secrets: inherit
-    with:
-      version: ${{ needs.get-date.outputs.year }}
+    - name: Install dependencies
+      run: uv sync --group docs
+
+    - name: Build documentation
+      run: uv run mkdocs build
+
+  deploy:
+    needs: [build]
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install uv
+      uses: astral-sh/setup-uv@v5
+
+    - name: Install dependencies
+      run: uv sync --group docs
+
+    - name: Deploy to GitHub Pages
+      run: uv run mkdocs gh-deploy --force

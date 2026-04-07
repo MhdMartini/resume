@@ -1,17 +1,16 @@
 [project]
 name = "resume"
-version = "2026.2.25"
-description = "Resume"
+version = "2026.4.7"
+description = "Resume webpage"
 dependencies = []
 requires-python = ">=3.10"
 readme = "README.md"
 [[project.authors]]
 name = "Mohamed Martini"
-email = "leverai@leverai.tech"
+email = "mhdmart1@gmail.com"
 
 [dependency-groups]
-docs = [ "mkdocs>=1.6.1", "mkdocs-material>=9.6.5", "mike>=2.1.3", "mkdocstrings>=0.28.1", "shtab>=1.7.1",]
-lint = [ "codespell>=2.4.1",]
+docs = ["mkdocs>=1.6.1", "mkdocs-material>=9.6.5"]
 
 [project.license]
 text = "MIT"
