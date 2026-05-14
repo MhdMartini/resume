@@ -24,7 +24,7 @@ MLE with proven industry skills in developing and deploying real-world ML soluti
 :   Expert in Python, SQL. Familiar with C/C++, Dart.
 
 **AI / ML**
-:   TensorFlow, PyTorch, LangChain, LangGraph, Hugging Face, RAG architectures, Agentic Workflows (Claude).
+:   TensorFlow, PyTorch, Pandas, LangChain, LangGraph, RAG architectures, Agentic Workflows (Claude).
 
 **Data Engineering**
 :   Apache Beam, BigQuery, Postgres, GCS, Weaviate, Kafka, PySpark, Redis, Airflow, ETL pipelines.
