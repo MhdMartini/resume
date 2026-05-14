@@ -12,7 +12,7 @@ hide:
 
 ## Summary
 
-SWE with proven industry skills in developing and deploying real-world ML solutions, cloud-native backend applications and microservices design. Passionate about architecting scalable, reliable, and maintainable data intensive applications that leverage AI and timeless engineering principles.
+MLE with proven industry skills in developing and deploying real-world ML solutions, cloud-native backend applications and microservices design. Passionate about architecting scalable, reliable, and maintainable data intensive applications that leverage AI and timeless engineering principles.
 
 ---
 
@@ -21,16 +21,16 @@ SWE with proven industry skills in developing and deploying real-world ML soluti
 <div class="skills-grid" markdown>
 
 **Programming Languages**
-:   Expert in Python, SQL. Familiar with C/C++, Flutter.
+:   Expert in Python, SQL. Familiar with C/C++, Dart.
 
 **AI / ML**
-:   LangChain, LangGraph, RAG, TensorFlow, PyTorch, NumPy, Pandas, Hugging Face.
+:   TensorFlow, PyTorch, LangChain, LangGraph, Hugging Face, RAG architectures, Agentic Workflows (Claude).
 
-**Data**
-:   ETL, Apache Beam, BigQuery, SQL/NoSQL, GCS, Kafka, PySpark, Redis. Familiar with Airflow.
+**Data Engineering**
+:   Apache Beam, BigQuery, Postgres, GCS, Weaviate, Kafka, PySpark, Redis, Airflow, ETL pipelines.
 
-**Backend**
-:   REST (FastAPI), Microservices, Websockets, gRPC,, Auth/Authz, Load Balancing, Rate Limiting, Scalability.
+**Backend & Architecture**
+:   FastAPI, REST, gRPC, WebSockets, SSE, Auth/Authz.
 
 **Containerization & CI/CD**
 :   Docker, Docker Compose, GitHub Actions, Python workspace management.
