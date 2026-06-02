@@ -65,7 +65,7 @@ export const projects: Project[] = [
     statusLabel: 'In progress',
     description:
       "A temporal legal citator and RAG system over 300k Syrian gazette scans — tracking statutory amendments and repeals like a Shepard's for Syrian law. A custom right-to-left OCR re-orderer and a 3-engine consensus pipeline turn noisy two-column Arabic scans into machine-readable, citable text.",
-    metric: 'OCR character error 53.8 → 17.7 · human review cut to 7%',
+    metric: 'OCR character error 53.8 → 13.1',
     stack: ['RAG', 'OCR / Cloud Vision', 'Knowledge Graph', 'pgvector', 'Constrained decoding'],
   },
   {
@@ -104,7 +104,7 @@ export const experience: Experience[] = [
     org: 'Lever AI',
     orgMeta: 'AI-powered, data-driven software',
     summary:
-      'Founded an LLC building AI-powered software and SaaS, shipping production systems end-to-end while leveraging AI coding agents with full architectural oversight.',
+      'Founded an LLC building AI-powered software and SaaS, shipping production systems end-to-end with full architectural ownership.',
     highlights: [
       'Shipped Guesstimate to both app stores; incubating Sanad, ThermoPulse and RenoVision Bot.',
       'LLM-native ETL pipeline generating 1,000+ semantically-unique questions with embedding-based dedup and grounded answering.',
