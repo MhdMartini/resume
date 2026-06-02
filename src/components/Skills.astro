@@ -1,0 +1,53 @@
+---
+import { skills } from '../data/site';
+---
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="num">01 /</span>
+      <span class="title">Skills</span>
+    </div>
+
+    <div class="groups">
+      {
+        skills.map((g) => (
+          <div class="group reveal">
+            <div class="label">{g.label}</div>
+            <div class="chips">
+              {g.items.map((s) => (
+                <span class="chip">{s}</span>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .groups {
+    margin-top: 4px;
+  }
+  .group {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: clamp(18px, 3vw, 32px);
+    align-items: start;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .label {
+    font-family: var(--font-mono);
+    font-size: 13.5px;
+    color: var(--ink);
+    padding-top: 5px;
+  }
+  @media (max-width: 680px) {
+    .group {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+  }
+</style>

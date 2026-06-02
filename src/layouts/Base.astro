@@ -1,0 +1,153 @@
+---
+import '../styles/global.css';
+import { profile, links } from '../data/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = `${profile.name} — ${profile.role}`,
+  description = profile.metaDescription,
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const ogImage = new URL('/og.png', Astro.site).href;
+
+const personLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: profile.name,
+  jobTitle: profile.role,
+  url: links.website,
+  email: `mailto:${links.email}`,
+  address: { '@type': 'PostalAddress', addressRegion: 'New Hampshire', addressCountry: 'US' },
+  sameAs: [links.github, links.linkedin],
+};
+---
+
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="canonical" href={canonical} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content={profile.name} />
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- Set theme before first paint to avoid a flash -->
+    <script is:inline>
+      (function () {
+        try {
+          var param = new URLSearchParams(location.search).get('theme');
+          var override = param === 'dark' || param === 'light' ? param : null;
+          var stored = localStorage.getItem('theme');
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var theme = override || stored || (prefersDark ? 'dark' : 'light');
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (e) {}
+      })();
+    </script>
+
+    <!-- Fonts: distinctive display/body type (Fontshare) + mono (Google) -->
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600&f[]=cabinet-grotesk@700,800&f[]=satoshi@400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <script type="application/ld+json" set:html={JSON.stringify(personLd)} />
+  </head>
+  <body>
+    <slot />
+
+    <!-- Scroll reveals + metric count-up + theme toggle -->
+    <script>
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // Reveal on scroll
+      const revealEls = document.querySelectorAll<HTMLElement>('.reveal');
+      if (reduceMotion) {
+        revealEls.forEach((el) => el.classList.add('in'));
+      } else {
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) {
+                e.target.classList.add('in');
+                io.unobserve(e.target);
+              }
+            });
+          },
+          { threshold: 0.14, rootMargin: '0px 0px -8% 0px' }
+        );
+        revealEls.forEach((el) => io.observe(el));
+      }
+
+      // Count-up for hero metrics
+      const counters = document.querySelectorAll<HTMLElement>('[data-count]');
+      const animateCount = (el: HTMLElement) => {
+        const target = Number(el.dataset.count);
+        if (reduceMotion || !Number.isFinite(target)) {
+          el.textContent = String(target);
+          return;
+        }
+        const dur = 1100;
+        const start = performance.now();
+        const step = (now: number) => {
+          const p = Math.min((now - start) / dur, 1);
+          const eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = String(Math.round(eased * target));
+          if (p < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      };
+      const cio = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              animateCount(e.target as HTMLElement);
+              cio.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.6 }
+      );
+      counters.forEach((el) => cio.observe(el));
+
+      // Theme toggle
+      const setTheme = (t: string) => {
+        document.documentElement.setAttribute('data-theme', t);
+        try {
+          localStorage.setItem('theme', t);
+        } catch (e) {}
+      };
+      document.querySelectorAll<HTMLElement>('[data-theme-toggle]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const cur = document.documentElement.getAttribute('data-theme');
+          setTheme(cur === 'dark' ? 'light' : 'dark');
+        });
+      });
+    </script>
+  </body>
+</html>
