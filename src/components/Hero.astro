@@ -147,8 +147,11 @@ import { profile, links, metrics } from '../data/site';
     border-top: 1px solid var(--line);
   }
   .metric {
-    padding: 26px 24px 8px 0;
+    padding: 26px 28px 8px 28px;
     border-right: 1px solid var(--line);
+  }
+  .metric:first-child {
+    padding-left: 0;
   }
   .metric:last-child {
     border-right: 0;
