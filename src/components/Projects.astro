@@ -5,33 +5,31 @@ import { projects } from '../data/site';
 <section id="work">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="num">02 /</span>
+      <span class="num">03 /</span>
       <span class="title">Selected work</span>
       <span class="meta">{projects.length} projects · 2024–present</span>
     </div>
 
-    <div class="rows">
+    <div class="cards">
       {
         projects.map((p, i) => (
-          <article class="prow reveal">
-            <div class="idx">{String(i + 1).padStart(2, '0')}</div>
-            <div class="body">
-              <h3 class="name">
-                {p.name}
-                <span class={`badge ${p.status}`}>{p.statusLabel}</span>
-              </h3>
-              <p class="desc">{p.description}</p>
-              <p class="metric">{p.metric}</p>
-              {p.links && (
-                <p class="plinks">
-                  {p.links.map((l) => (
-                    <a href={l.href} target="_blank" rel="noopener">
-                      {l.label} <span aria-hidden="true">↗</span>
-                    </a>
-                  ))}
-                </p>
-              )}
+          <article class="card reveal">
+            <div class="top">
+              <span class="idx">{String(i + 1).padStart(2, '0')}</span>
+              <span class={`badge ${p.status}`}>{p.statusLabel}</span>
             </div>
+            <h3 class="name">{p.name}</h3>
+            <p class="desc">{p.description}</p>
+            <p class="metric">{p.metric}</p>
+            {p.links && (
+              <p class="plinks">
+                {p.links.map((l) => (
+                  <a href={l.href} target="_blank" rel="noopener">
+                    {l.label} <span aria-hidden="true">↗</span>
+                  </a>
+                ))}
+              </p>
+            )}
             <div class="chips">
               {p.stack.map((s) => (
                 <span class="chip">{s}</span>
@@ -45,52 +43,57 @@ import { projects } from '../data/site';
 </section>
 
 <style>
-  .rows {
-    margin-top: 4px;
-  }
-  .prow {
+  .cards {
+    margin-top: 22px;
     display: grid;
-    grid-template-columns: 80px 1fr 230px;
-    gap: clamp(20px, 3vw, 32px);
-    padding: clamp(26px, 4vw, 36px) 12px;
-    border-bottom: 1px solid var(--line);
-    align-items: start;
-    transition: background 0.25s ease;
-    border-radius: 10px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(18px, 2.2vw, 26px);
   }
-  .prow:hover {
-    background: var(--bg-elev);
+  /* resting state mirrors the skill chips: hairline --line border, tight
+     radius, no fill, no shadow — just a larger surface */
+  .card {
+    display: flex;
+    flex-direction: column;
+    padding: clamp(26px, 3vw, 36px);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    transition: border-color 0.25s ease, transform 0.25s ease;
+  }
+  .card:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+  }
+  .top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
   }
   .idx {
-    font-family: var(--font-display);
-    font-weight: 500;
-    font-size: 30px;
+    font-family: var(--font-mono);
+    font-size: 12.5px;
     color: var(--faint);
     transition: color 0.25s ease;
-    line-height: 1.1;
   }
-  .prow:hover .idx {
+  /* color animation on hover — the mono index picks up the accent */
+  .card:hover .idx {
     color: var(--accent);
   }
   .name {
     font-family: var(--font-display);
     font-weight: 600;
-    font-size: clamp(22px, 3vw, 27px);
+    font-size: clamp(20px, 2.4vw, 24px);
     letter-spacing: -0.5px;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    flex-wrap: wrap;
   }
   .desc {
     color: var(--muted);
-    font-size: 15.5px;
-    line-height: 1.62;
-    margin-top: 12px;
-    max-width: 62ch;
+    font-size: 14.5px;
+    line-height: 1.6;
+    margin-top: 10px;
   }
   .metric {
-    font-size: 14px;
+    font-size: 13.5px;
     margin-top: 14px;
     color: var(--ink);
     font-weight: 500;
@@ -98,12 +101,12 @@ import { projects } from '../data/site';
   .plinks {
     display: flex;
     flex-wrap: wrap;
-    gap: 18px;
+    gap: 16px;
     margin-top: 14px;
   }
   .plinks a {
     font-family: var(--font-mono);
-    font-size: 12.5px;
+    font-size: 12px;
     color: var(--accent);
     border-bottom: 1px solid transparent;
     transition: border-color 0.2s ease;
@@ -111,32 +114,16 @@ import { projects } from '../data/site';
   .plinks a:hover {
     border-color: var(--accent);
   }
+  /* pin the tech stack to the bottom so cards in a row align */
   .chips {
-    align-content: flex-start;
+    margin-top: auto;
+    padding-top: 20px;
   }
 
-  @media (max-width: 820px) {
-    .prow {
-      grid-template-columns: 52px 1fr;
-      gap: 16px 20px;
-    }
-    .idx {
-      font-size: 22px;
-    }
-    .chips {
-      grid-column: 2;
-      margin-top: 18px;
-    }
-  }
-  @media (max-width: 480px) {
-    .prow {
+  /* keep the 2×2 grid down to narrow widths; single column only on phones */
+  @media (max-width: 520px) {
+    .cards {
       grid-template-columns: 1fr;
-    }
-    .idx {
-      display: none;
-    }
-    .chips {
-      grid-column: 1;
     }
   }
 </style>

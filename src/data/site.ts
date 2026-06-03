@@ -116,7 +116,6 @@ export const experience: Experience[] = [
     date: 'Oct 2022 — Jul 2025',
     role: 'Machine Learning Engineer III',
     org: 'Pison Technology',
-    orgMeta: '2 yrs 10 mos · promoted MLE → MLE III',
     summary:
       'Owned the full cycle of biosignal ML products — from experimentation and custom architectures to deployment and drift monitoring.',
     highlights: [
@@ -145,21 +144,21 @@ export const education: Education[] = [
 export type SkillGroup = { label: string; items: string[] };
 
 export const skills: SkillGroup[] = [
-  { label: 'Languages', items: ['Python', 'SQL', 'C / C++', 'Dart'] },
+  { label: 'Programming Languages', items: ['Python', 'SQL', 'C / C++', 'Dart'] },
   {
-    label: 'AI / ML',
-    items: ['TensorFlow', 'PyTorch', 'Pandas', 'NumPy', 'scikit-learn', 'Model Optimization', 'LangChain', 'LangGraph', 'RAG', 'HuggingFace'],
+    label: 'ML & Deep Learning',
+    items: ['TensorFlow', 'PyTorch', 'Pandas', 'NumPy', 'scikit-learn', 'Model Optimization'],
+  },
+  {
+    label: 'GenAI & LLM',
+    items: ['LangChain', 'LangGraph', 'RAG', 'HuggingFace', 'Weaviate', 'pgvector'],
   },
   {
     label: 'Data & Cloud',
-    items: ['Apache Beam', 'BigQuery', 'PySpark', 'Airflow', 'Kafka', 'Pub/Sub', 'Postgres', 'pgvector', 'Weaviate', 'GCP', 'Cloud Run', 'Cloud Functions', 'GCS', 'Model Registry', 'Artifact Registry', 'IAM', 'Cloud Logging', 'Cloud Trace'],
+    items: ['Apache Beam', 'BigQuery', 'PySpark', 'Airflow', 'Kafka', 'Postgres', 'Pub/Sub', 'GCP', 'Cloud Run', 'Cloud Functions', 'Model Registry', 'Artifact Registry', 'GCS', 'IAM', 'Cloud Logging', 'Cloud Trace'],
   },
   {
-    label: 'Backend & Architecture',
-    items: ['FastAPI', 'REST', 'gRPC', 'WebSockets', 'SSE'],
-  },
-  {
-    label: 'Infra & CI/CD',
-    items: ['Docker', 'Docker Compose', 'GitHub Actions', 'OpenTelemetry', 'uv workspaces'],
+    label: 'Backend & DevOps',
+    items: ['FastAPI', 'REST', 'gRPC', 'WebSockets', 'SSE', 'Docker', 'Docker Compose', 'GitHub Actions', 'OpenTelemetry', 'uv workspaces'],
   },
 ];
