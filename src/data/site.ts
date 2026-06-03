@@ -148,15 +148,15 @@ export const skills: SkillGroup[] = [
   { label: 'Languages', items: ['Python', 'SQL', 'C / C++', 'Dart'] },
   {
     label: 'AI / ML',
-    items: ['TensorFlow', 'PyTorch', 'Pandas', 'LangChain', 'LangGraph', 'RAG', 'HuggingFace', 'Computer Vision', 'Agentic Workflows'],
+    items: ['TensorFlow', 'PyTorch', 'Pandas', 'NumPy', 'scikit-learn', 'Model Optimization', 'LangChain', 'LangGraph', 'RAG', 'HuggingFace'],
   },
   {
-    label: 'Data Engineering',
-    items: ['Apache Beam', 'BigQuery', 'Postgres', 'pgvector', 'GCS', 'Weaviate', 'Kafka', 'Pub/Sub', 'PySpark', 'Airflow'],
+    label: 'Data & Cloud',
+    items: ['Apache Beam', 'BigQuery', 'PySpark', 'Airflow', 'Kafka', 'Pub/Sub', 'Postgres', 'pgvector', 'Weaviate', 'GCP', 'Cloud Run', 'Cloud Functions', 'GCS', 'Model Registry', 'Artifact Registry', 'IAM', 'Cloud Logging', 'Cloud Trace'],
   },
   {
     label: 'Backend & Architecture',
-    items: ['FastAPI', 'REST', 'gRPC', 'WebSockets', 'SSE', 'Webhooks', 'Auth / Authz'],
+    items: ['FastAPI', 'REST', 'gRPC', 'WebSockets', 'SSE'],
   },
   {
     label: 'Infra & CI/CD',
