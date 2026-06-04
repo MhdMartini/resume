@@ -1,5 +1,5 @@
 ---
-import { experience, education } from '../data/site';
+import { experience, education, recognition, certifications } from '../data/site';
 ---
 
 <section id="experience">
@@ -35,7 +35,14 @@ import { experience, education } from '../data/site';
     </div>
 
     <div class="edu reveal">
-      <div class="edu-label">Education</div>
+      <div class="edu-label">
+        <svg class="sub-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M2 8.5 12 4l10 4.5-10 4.5L2 8.5Z" />
+          <path d="M6 10.6V15c0 1.4 2.7 2.5 6 2.5s6-1.1 6-2.5v-4.4" />
+          <path d="M22 8.5v4" />
+        </svg>
+        Education
+      </div>
       <div class="edu-grid">
         {
           education.map((e) => (
@@ -48,6 +55,69 @@ import { experience, education } from '../data/site';
           ))
         }
       </div>
+    </div>
+
+    <div class="certs reveal">
+      <div class="edu-label">
+        <svg class="sub-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M6 3h7l5 5v12a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z" />
+          <path d="M13 3v5h5" />
+          <path d="M8.5 13h7M8.5 16.5h5" />
+        </svg>
+        Certifications
+      </div>
+      <div class="cert-row">
+        {
+          certifications.map((c) => (
+            <a class="cert-card" href={c.file} target="_blank" rel="noopener noreferrer">
+              <div class="cert-title">{c.title}</div>
+              <div class="cert-meta">
+                {c.issuer} · {c.meta}
+              </div>
+              <span class="cert-view">
+                View PDF <span aria-hidden="true">↗</span>
+              </span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="recognition reveal">
+      <div class="edu-label">
+        <svg class="sub-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="8" r="6" />
+          <path d="M8.5 13.2 7 22l5-3 5 3-1.5-8.8" />
+        </svg>
+        Recognition
+      </div>
+      {
+        recognition.map((r) => (
+          <article class="rec-item">
+            <div class="rec-rank">{r.rank}</div>
+            <div class="rec-content">
+              <h3 class="rec-title">
+                {r.title}
+                <span class="rec-year"> · {r.meta}</span>
+              </h3>
+              <div class="rec-metric">{r.metric}</div>
+              <p class="rec-blurb">{r.blurb}</p>
+              <div class="chips rec-chips">
+                {r.tags.map((t) => (
+                  <span class="chip">{t}</span>
+                ))}
+              </div>
+              <div class="rec-links">
+                {r.links.map((l) => (
+                  <a class="rec-link" href={l.href} target="_blank" rel="noopener noreferrer">
+                    {l.label} <span aria-hidden="true">↗</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </article>
+        ))
+      }
     </div>
   </div>
 </section>
@@ -119,16 +189,132 @@ import { experience, education } from '../data/site';
     transform: rotate(45deg);
   }
 
+  .recognition {
+    margin-top: clamp(34px, 5vw, 48px);
+  }
+  .rec-item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: clamp(18px, 3vw, 32px);
+    margin-top: 4px;
+  }
+  .rec-rank {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(30px, 4vw, 40px);
+    letter-spacing: -1px;
+    line-height: 1;
+    color: var(--accent);
+    padding-top: 2px;
+  }
+  .rec-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(17px, 2.2vw, 19px);
+    letter-spacing: -0.3px;
+    line-height: 1.3;
+  }
+  .rec-year {
+    color: var(--muted);
+    font-weight: 400;
+  }
+  .rec-metric {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--accent);
+    margin-top: 7px;
+  }
+  .rec-blurb {
+    color: var(--muted);
+    font-size: 14.5px;
+    line-height: 1.62;
+    margin-top: 12px;
+    max-width: 70ch;
+  }
+  .rec-chips {
+    margin-top: 14px;
+  }
+  .rec-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-top: 16px;
+  }
+  .rec-link {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--accent);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
+  }
+  .rec-link:hover {
+    border-bottom-color: var(--accent);
+  }
+
+  .certs {
+    margin-top: clamp(34px, 5vw, 48px);
+  }
+  .cert-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  .cert-card {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 18px 18px 16px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--bg-elev);
+    transition: transform 0.15s ease, border-color 0.2s ease;
+  }
+  .cert-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--line-strong);
+  }
+  .cert-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 15.5px;
+    line-height: 1.32;
+    letter-spacing: -0.2px;
+  }
+  .cert-meta {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+  .cert-view {
+    margin-top: auto;
+    padding-top: 12px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--accent);
+  }
+
   .edu {
     margin-top: clamp(34px, 5vw, 48px);
   }
   .edu-label {
+    display: flex;
+    align-items: center;
+    gap: 9px;
     font-family: var(--font-mono);
     font-size: 12.5px;
     letter-spacing: 1px;
     text-transform: uppercase;
     color: var(--faint);
     margin-bottom: 18px;
+  }
+  /* monochrome line icon anchoring each sub-section — accent matches the
+     section numbers, bullets and links */
+  .sub-ico {
+    width: 16px;
+    height: 16px;
+    color: var(--accent);
+    flex: none;
   }
   .edu-grid {
     display: grid;
@@ -147,14 +333,22 @@ import { experience, education } from '../data/site';
   }
 
   @media (max-width: 680px) {
-    .item {
+    .item,
+    .rec-item {
       grid-template-columns: 1fr;
       gap: 6px;
     }
-    .date {
+    .date,
+    .rec-rank {
       padding-top: 0;
     }
+    .rec-rank {
+      margin-bottom: 6px;
+    }
     .edu-grid {
+      grid-template-columns: 1fr;
+    }
+    .cert-row {
       grid-template-columns: 1fr;
     }
   }

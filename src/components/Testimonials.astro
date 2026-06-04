@@ -1,0 +1,109 @@
+---
+import { testimonials } from '../data/site';
+---
+
+<section id="recommendations">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="num">04 /</span>
+      <span class="title">Recommendations</span>
+      <span class="meta">{testimonials.length} · via LinkedIn</span>
+    </div>
+
+    <div class="cards">
+      {
+        testimonials.map((t) => (
+          <article class="card reveal">
+            <span class="mark" aria-hidden="true">“</span>
+            <div class="quote">
+              {t.quote.map((p) => (
+                <p>{p}</p>
+              ))}
+            </div>
+            <div class="attr">
+              <a class="name" href={t.profile} target="_blank" rel="noopener noreferrer">
+                {t.name} <span class="ext" aria-hidden="true">↗</span>
+              </a>
+              <div class="role">
+                {t.relationship} · {t.company}
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .cards {
+    margin-top: 22px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(18px, 2.2vw, 26px);
+    align-items: start;
+  }
+  /* same surface language as the project cards: hairline border, tight
+     radius, accent on hover */
+  .card {
+    display: flex;
+    flex-direction: column;
+    padding: clamp(26px, 3vw, 36px);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    transition: border-color 0.25s ease, transform 0.25s ease;
+  }
+  .card:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+  }
+  .mark {
+    font-family: var(--font-display);
+    font-size: 50px;
+    line-height: 1;
+    color: var(--accent);
+    opacity: 0.25;
+    margin-bottom: 2px;
+  }
+  .quote {
+    display: grid;
+    gap: 12px;
+  }
+  .quote p {
+    color: var(--muted);
+    font-size: 14.5px;
+    line-height: 1.62;
+  }
+  .attr {
+    margin-top: 22px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+  }
+  .name {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: -0.3px;
+    transition: color 0.2s ease;
+  }
+  .name:hover {
+    color: var(--accent);
+  }
+  .name .ext {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--accent);
+  }
+  .role {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--faint);
+    margin-top: 4px;
+  }
+
+  @media (max-width: 680px) {
+    .cards {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -141,6 +141,66 @@ export const education: Education[] = [
   { degree: 'B.S. Electrical Engineering', org: 'UMass Lowell', meta: 'GPA 3.8 · 2021' },
 ];
 
+export type Recognition = {
+  rank: string; // headline result, e.g. "Top 6%"
+  title: string;
+  meta: string; // year / scope
+  metric: string; // short highlighted differentiator
+  blurb: string;
+  tags: string[];
+  links: { label: string; href: string }[];
+};
+
+export const recognition: Recognition[] = [
+  {
+    rank: 'Top 6%',
+    title: 'Kaggle · House Prices: Advanced Regression Techniques',
+    meta: '2022',
+    metric: 'Single model · no ensembling',
+    blurb:
+      'Landed in the top 6% with one tuned CatBoost regressor — no stacking or blending. The lift came from feature work, not model count: domain-aware ordinal encoding of the quality ladders, a model-based imputer for missing numerics, and degree-2 polynomial interactions over hand-built signals like age-at-sale and area aggregates.',
+    tags: ['CatBoost', 'Feature engineering', 'Polynomial interactions', 'Model-based imputation', 'GridSearchCV'],
+    links: [
+      {
+        label: 'Notebook',
+        href: 'https://www.kaggle.com/code/mohamedmartini/house-price-prediction-top-6-no-ensemble',
+      },
+      {
+        label: 'Competition',
+        href: 'https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques',
+      },
+    ],
+  },
+];
+
+export type Certification = {
+  title: string;
+  issuer: string;
+  meta: string; // scope / year
+  file: string; // path under public/ — opens the PDF
+};
+
+export const certifications: Certification[] = [
+  {
+    title: 'Advanced Learning Algorithms',
+    issuer: 'DeepLearning.AI · Stanford',
+    meta: '2022',
+    file: '/certificates/advanced-learning-algorithms.pdf',
+  },
+  {
+    title: 'Data Engineering, Big Data & ML on GCP',
+    issuer: 'Google Cloud',
+    meta: 'Specialization · 5 courses · 2022',
+    file: '/certificates/data-engineering-ml-gcp.pdf',
+  },
+  {
+    title: 'Retrieval Augmented Generation (RAG)',
+    issuer: 'DeepLearning.AI',
+    meta: '2026',
+    file: '/certificates/retrieval-augmented-generation.pdf',
+  },
+];
+
 export type SkillGroup = { label: string; items: string[] };
 
 export const skills: SkillGroup[] = [
@@ -160,5 +220,62 @@ export const skills: SkillGroup[] = [
   {
     label: 'Backend & DevOps',
     items: ['FastAPI', 'REST', 'gRPC', 'WebSockets', 'SSE', 'Docker', 'Docker Compose', 'GitHub Actions', 'OpenTelemetry', 'uv workspaces'],
+  },
+];
+
+export type Testimonial = {
+  quote: string[]; // one entry per paragraph
+  name: string;
+  relationship: string;
+  company: string;
+  profile: string; // LinkedIn URL — links the name for verifiability
+};
+
+// Ordered as displayed. Sourced from LinkedIn recommendations.
+export const testimonials: Testimonial[] = [
+  {
+    quote: [
+      'I had the pleasure of working with Mohamed for over three years at Pison Technology, where he served as a Machine Learning Engineer within the ML team of the Algorithm Division that I led.',
+      'During that time, Mohamed played an important role in the development of our EMG-based machine learning algorithms and supporting software tooling. He consistently demonstrated strong technical skills in machine learning, cloud computing, and software development, while maintaining a practical, results-oriented mindset.',
+      'One of Mohamed’s standout qualities is his responsiveness and reliability. He consistently delivered high-quality work on schedule and could always be counted on to take ownership of his assignments. He is highly self-motivated, learns quickly, and proactively seeks solutions to challenging technical problems.',
+      'Beyond his technical capabilities, Mohamed is a positive and collaborative teammate. He is approachable, friendly, and works well with colleagues across functions. Most importantly, he conducts himself with professionalism and integrity, earning the trust and respect of those around him.',
+      'I would highly recommend Mohamed to any organization seeking a talented machine learning engineer with strong technical expertise, a great work ethic, and excellent character. I am confident he will be a valuable asset to any team he joins.',
+    ],
+    name: 'Xiaofeng Tan',
+    relationship: 'Manager',
+    company: 'Pison Technology',
+    profile: 'https://www.linkedin.com/in/xiaofeng-tan-0a832369/',
+  },
+  {
+    quote: [
+      'I had the pleasure of working with Mo at Pison and can confidently say he’s one of the most thoughtful engineers I’ve worked with.',
+      'Mo has a strong ability to understand the larger system, navigate trade-offs, and consistently deliver high-quality work. His solutions are well-reasoned, practical, and built with care.',
+      'What I appreciated most, though, was how easy he is to work with. Mo is humble, even-keeled, and collaborative. No matter the challenge or pressure, he brings a calm presence and thoughtful perspective that helps teams make better decisions.',
+      'He’s the kind of engineer you trust with important problems and foundational systems. Any team would be fortunate to have him.',
+    ],
+    name: 'Mike Kowalczyk',
+    relationship: 'Colleague',
+    company: 'Pison Technology',
+    profile: 'https://www.linkedin.com/in/mike-kowalczyk-78592839/',
+  },
+  {
+    quote: [
+      'I worked closely with Mo on several projects including machine learning infrastructure and pipelines as well as data science modeling.',
+      'One of the projects I was impressed with was his design and development of a custom ML pipeline that simply took YAML files with high-level instructions and converted them to full ML pipelines that ran in one line. The impressive part was the easy integration with existing Pison custom preprocessing functions and model. It allowed the Data Science team to be much more efficient and let us focus on the actual experiments and development.',
+    ],
+    name: 'Sam Kovaly',
+    relationship: 'Teammate',
+    company: 'Pison Technology',
+    profile: 'https://www.linkedin.com/in/sam-kovaly-101/',
+  },
+  {
+    quote: [
+      'I highly recommend Mo. Not only does he have an impressive breadth of knowledge (from ML to life sciences), but he is also an exceptional collaborator and mentor.',
+      'Mo and I worked together on several projects, and throughout that time he consistently demonstrated both technical expertise and a genuine willingness to help others grow. As a data analyst from a non-technical background, I greatly appreciated the time he took out of his busy schedule to review the structure and efficiency of my code! This feedback was not required for the project and was offered purely to help me grow as a programmer.',
+    ],
+    name: 'Katherine Fronczak',
+    relationship: 'Colleague',
+    company: 'Pison Technology',
+    profile: 'https://www.linkedin.com/in/katherine-fronczak/',
   },
 ];
