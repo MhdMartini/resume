@@ -28,9 +28,8 @@ skills. The components are content-agnostic, so edit that one file to update the
 
 Other assets:
 
-- `public/resume.pdf` — the downloadable résumé (replace this file to update it)
-- `public/og.png` — social-share / link-preview image (1200×630)
-- `public/logo.png` — favicon
+- `public/resume.md` — résumé source of truth; `public/resume.pdf` is generated from it (regenerate after editing the markdown)
+- `public/logo.svg` — favicon (SVG, recolored to the site palette)
 - `public/CNAME` — custom domain (`leverai.tech`)
 
 ## Deployment

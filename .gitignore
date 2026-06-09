@@ -27,4 +27,7 @@ yarn-error.log*
 Thumbs.db
 .vscode/
 .idea/
-resume.md
+
+# private job-search knowledge base — cover letters + tailored resume variants.
+# Gitignored AND kept outside public/ so nothing private is committed or deployed to leverai.tech.
+knowledge-base/

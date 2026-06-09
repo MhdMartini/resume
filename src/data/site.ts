@@ -130,7 +130,7 @@ export const experience: Experience[] = [
     role: 'Research Assistant',
     org: 'University of Massachusetts Lowell',
     summary:
-      'Built reinforcement-learning agents and environments for cooperative multi-agent search-and-rescue, and object-detection training/inference pipelines with generative data augmentation.',
+      'Built reinforcement-learning agents and environments for cooperative multi-agent search-and-rescue, and YOLO-based object-detection training/inference pipelines with generative data augmentation.',
   },
 ];
 
@@ -207,7 +207,7 @@ export const skills: SkillGroup[] = [
   { label: 'Programming Languages', items: ['Python', 'SQL', 'C / C++', 'Dart'] },
   {
     label: 'ML & Deep Learning',
-    items: ['TensorFlow', 'PyTorch', 'Pandas', 'NumPy', 'scikit-learn', 'Model Optimization'],
+    items: ['TensorFlow', 'PyTorch', 'Pandas', 'NumPy', 'scikit-learn', 'OpenCV', 'Model Optimization'],
   },
   {
     label: 'GenAI & LLM',
