@@ -29,6 +29,7 @@ export type Metric = { prefix?: string; value: number; suffix?: string; label: s
 
 export const metrics: Metric[] = [
   { prefix: '+', value: 15, suffix: '%', label: 'macro F1 gain on sleep-staging' },
+  { value: 3, suffix: '×', label: 'faster sleep-staging inference' },
   { value: 190, suffix: '×', label: 'faster batch ETL pipeline' },
   { value: 2, label: 'apps live on iOS & Android' },
 ];
@@ -119,7 +120,7 @@ export const experience: Experience[] = [
     summary:
       'Owned the full cycle of biosignal ML products — from experimentation and custom architectures to deployment and drift monitoring.',
     highlights: [
-      'Ran 1,200+ TensorFlow experiments for sleep-stage classification, improving baseline macro F1 by 15%.',
+      'Ran 1,200+ TensorFlow experiments for sleep-stage classification, improving the macro F1 of the previously deployed model by 15% and making inference 3× faster.',
       'Mitigated class imbalance with cost-sensitive and contrastive losses; designed a custom gating layer for feature mining that cut the feature set by an order of magnitude.',
       'Sped a batch Apache Beam ETL pipeline by 190×; led BigQuery adoption with query-driven partitioning & clustering.',
       'Implemented a domain-invariant adversarial classification network in PyTorch from its original manuscript; Cythonized bottlenecks for real-time gesture detection.',

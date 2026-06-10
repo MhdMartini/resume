@@ -30,7 +30,7 @@ Machine Learning Engineer with 3+ years of industry experience owning deep-learn
 **Pison Technology							     		          Oct 2022 \- Jul 2025**  
 *Machine Learning Engineer III* (promoted from Machine Learning Engineer, Apr 2025\)
 
-* Owned a sleep-stage classification model end-to-end: **improved baseline macro F1 by 15%** across 1,200+ TensorFlow experiments, **mitigated class imbalance** with cost-sensitive and contrastive losses, designed a **custom gating layer** that lifted accuracy while shrinking the feature set by an order of magnitude, and shipped **SPI-based drift monitoring** to trigger automated re-training alerts.  
+* Owned a sleep-stage classification model end-to-end: **improved previously-deployed model’s macro F1 by 15%** across 1,200+ TensorFlow experiments, **mitigated class imbalance** with cost-sensitive and contrastive losses, designed a **custom gating layer** that lifted accuracy while shrinking the feature set by an order of magnitude, **made inference 3× faster**, and shipped **SPI-based drift monitoring** to trigger automated re-training alerts.  
 * Built real-time biosignal **gesture-detection** models; wrote **Cythonized** extension modules and vectorized bottleneck functions, sharply accelerating both online inference and offline modeling.  
 * Implemented a SOTA **domain-invariant classification network** with adversarial training in PyTorch from the original paper (3-person internal "Hackaweek").  
 * **Sped up a batch ETL pipeline 190×** with Apache Beam; led **BigQuery** adoption, choosing partitioning and clustering to match query patterns.  
@@ -40,7 +40,7 @@ Machine Learning Engineer with 3+ years of industry experience owning deep-learn
 *Research Assistant*
 
 * Implemented **Reinforcement Learning** agents and environments for cooperative multi-agent Search and Rescue tasks.  
-* Implemented **YOLO**-based **object detection** training and inference pipelines. Used Generative AI for data augmentation.
+* Implemented **YOLO**\-based **object detection** training and inference pipelines. Used Generative AI for data augmentation.
 
 **EDUCATION**  
 ---
