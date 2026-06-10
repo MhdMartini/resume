@@ -208,7 +208,7 @@ export const skills: SkillGroup[] = [
   { label: 'Programming Languages', items: ['Python', 'SQL', 'C / C++', 'Dart'] },
   {
     label: 'ML & Deep Learning',
-    items: ['TensorFlow', 'PyTorch', 'Pandas', 'NumPy', 'scikit-learn', 'OpenCV', 'Model Optimization'],
+    items: ['TensorFlow', 'PyTorch', 'Pandas', 'NumPy', 'scikit-learn', 'OpenCV', 'MLflow'],
   },
   {
     label: 'GenAI & LLM',

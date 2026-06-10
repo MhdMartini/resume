@@ -10,7 +10,7 @@ Machine Learning Engineer with 3+ years of industry experience owning deep-learn
 ---
 
 * **Programming Languages:** Expert in Python, SQL. Familiar with C/C++, Dart.  
-* **ML & Deep Learning:** TensorFlow, PyTorch, Pandas, NumPy, scikit-learn, OpenCV, model optimization.  
+* **ML & Deep Learning:** TensorFlow, PyTorch, Pandas, NumPy, scikit-learn, OpenCV, MLflow.  
 * **GenAI & LLM:** LangChain, LangGraph, RAG, HuggingFace, vector DBs (Weaviate, pgvector).  
 * **Data & Cloud:** Apache Beam, BigQuery, PySpark, Airflow, Kafka, Postgres, Pub/Sub, GCP (Cloud Run, Cloud Functions, Model Registry, Artifact Registry, GCS, IAM, Cloud Logging, Cloud Trace).  
 * **Backend & DevOps:** FastAPI, REST, gRPC, WebSockets, SSE, Docker/Compose, GitHub Actions, OpenTelemetry.
