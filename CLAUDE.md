@@ -7,12 +7,12 @@ This repo is **public** — never commit or deploy anything private.
 
 - `src/data/site.ts` — all website content (Hero, Skills, Experience, Projects, Recognition, Certifications, Testimonials). Edit here to change the site; the components are content-agnostic.
 - `public/resume.md` — **canonical resume source** (single source of truth). Tracked in git.
-- `public/resume.pdf` — the downloadable résumé. Generated from `resume.md` manually; regenerate after editing the markdown.
+- `public/resume.pdf` — the downloadable résumé. **Exported from Google Docs**, not built locally (the PDF metadata shows the Google Docs renderer and there is no local build script). To update it, apply the same edits in the matching Google Doc and re-download as PDF. Keep `resume.md` as the canonical text and mirror changes into the Doc.
 - `knowledge-base/` — **gitignored, private.** Job-search materials: past cover letters and tailored resume variants, used as context to draft new ones. Never move anything from here into `public/` (it would deploy to the live site) and never commit it.
 
 ## Editing the resume
 
-The skills and experience live in **both** `public/resume.md` and `src/data/site.ts`. Update both together so the downloadable résumé and the website stay in sync, then regenerate `public/resume.pdf`.
+The skills and experience live in **both** `public/resume.md` and `src/data/site.ts`. Update both together so the downloadable résumé and the website stay in sync, then re-export `public/resume.pdf` from Google Docs (see the Layout note above).
 
 ## Cover letters
 

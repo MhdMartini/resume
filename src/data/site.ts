@@ -131,7 +131,12 @@ export const experience: Experience[] = [
     role: 'Research Assistant',
     org: 'University of Massachusetts Lowell',
     summary:
-      'Built reinforcement-learning agents and environments for cooperative multi-agent search-and-rescue, and YOLO-based object-detection training/inference pipelines with generative data augmentation.',
+      'Owned a computer-vision object-detection pipeline end-to-end and built reinforcement-learning agents for cooperative multi-agent search-and-rescue.',
+    highlights: [
+      'Reviewed the object-detection literature for multi-modal RGB + thermal (LWIR) imagery and selected YOLO; benchmarked efficient CNN backbones (EfficientNet, MobileNet, SqueezeNet, ResNet) against Jetson Nano latency and memory budgets.',
+      'Owned the pipeline end-to-end — data collection, preprocessing, generative-AI augmentation, training, and edge deployment — curating a ~30 GB dataset and shipping real-time detection (~25 FPS) on a Jetson Nano.',
+      'Built reinforcement-learning agents and environments for cooperative multi-agent search-and-rescue.',
+    ],
   },
 ];
 
