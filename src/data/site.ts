@@ -100,7 +100,7 @@ export type Experience = {
 
 export const experience: Experience[] = [
   {
-    date: 'Jul 2025 — Present',
+    date: 'Dec 2025 — Present',
     role: 'Founder & Principal Engineer',
     org: 'Lever AI',
     orgMeta: 'AI-powered, data-driven software',
@@ -114,7 +114,7 @@ export const experience: Experience[] = [
     ],
   },
   {
-    date: 'Oct 2022 — Jul 2025',
+    date: 'Oct 2022 — Dec 2025',
     role: 'Machine Learning Engineer III',
     org: 'Pison Technology',
     summary:
@@ -221,7 +221,7 @@ export const skills: SkillGroup[] = [
   },
   {
     label: 'Data & Cloud',
-    items: ['Apache Beam', 'BigQuery', 'PySpark', 'Airflow', 'Kafka', 'Postgres', 'Pub/Sub', 'GCP', 'Cloud Run', 'Cloud Functions', 'Model Registry', 'Artifact Registry', 'GCS', 'IAM', 'Cloud Logging', 'Cloud Trace'],
+    items: ['Apache Beam', 'BigQuery', 'PySpark', 'Delta Lake', 'Kafka', 'Postgres', 'Pub/Sub', 'GCP', 'Cloud Run', 'Cloud Functions', 'Model Registry', 'Artifact Registry', 'GCS', 'IAM', 'Cloud Logging', 'Cloud Trace'],
   },
   {
     label: 'Backend & DevOps',

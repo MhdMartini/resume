@@ -11,14 +11,14 @@ Machine Learning Engineer with 3+ years of industry experience owning deep-learn
 
 * **Programming Languages:** Expert in Python, SQL. Familiar with C/C++, Dart.  
 * **ML & Deep Learning:** TensorFlow, PyTorch, Pandas, NumPy, scikit-learn, OpenCV, MLflow.  
-* **Data & Cloud:** Apache Beam, BigQuery, PySpark, Airflow, Kafka, Postgres, Pub/Sub, GCP (Cloud Run, Cloud Functions, Model Registry, Artifact Registry, GCS, IAM, Cloud Logging, Cloud Trace).  
+* **Data & Cloud:** Apache Beam, BigQuery, PySpark, Delta Lake, Kafka, Postgres, Pub/Sub, GCP (Cloud Run, Cloud Functions, Model Registry, Artifact Registry, GCS, IAM, Cloud Logging, Cloud Trace).  
 * **GenAI & LLM:** LangChain, LangGraph, RAG, HuggingFace, vector DBs (Weaviate, pgvector).  
 * **Backend & DevOps:** FastAPI, REST, gRPC, WebSockets, SSE, Docker/Compose, GitHub Actions, OpenTelemetry.
 
 **PROFESSIONAL EXPERIENCE**  
 ---
 
-**Lever AI										            Jul 2025 \- Present**  
+**Lever AI										            Dec 2025 \- Present**  
 *Founder & Principal Engineer*
 
 * Founded an independent ML & software studio; design and ship AI-powered, data-driven products end-to-end, from data pipelines and model integration to production backends and deployment. **Selected projects:**  
@@ -27,7 +27,7 @@ Machine Learning Engineer with 3+ years of industry experience owning deep-learn
   * **ThermoPulse** *(in progress)*: industrial cold-chain monitoring with time-series analytics and early fault detection.  
   * **Sanad** *(in progress)*: **RAG** and temporal citator over 300k scanned Syrian-law PDFs, tracking amendments and repeals across legal history. The current OCR pipeline cuts the character error rate from 53.8% to 13.1%.
 
-**Pison Technology							     		          Oct 2022 \- Jul 2025**  
+**Pison Technology							     		          Oct 2022 \- Dec 2025**  
 *Machine Learning Engineer III* (promoted from Machine Learning Engineer, Apr 2025\)
 
 * Owned a sleep-stage classification model end-to-end: **improved previously-deployed model’s macro F1 by 15%** across 1,200+ TensorFlow experiments, **mitigated class imbalance** with cost-sensitive and contrastive losses, designed a **custom gating layer** that lifted accuracy while shrinking the feature set by an order of magnitude, **made inference 3× faster**, and shipped **SPI-based drift monitoring** to trigger automated re-training alerts.  
