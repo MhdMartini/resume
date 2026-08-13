@@ -18,19 +18,18 @@ Machine Learning Engineer with 3+ years of industry experience owning deep-learn
 **PROFESSIONAL EXPERIENCE**  
 ---
 
-**Lever AI										            Dec 2025 \- Present**  
+**Lever AI										           Dec 2025 \- Present**  
 *Founder & Principal Engineer*
 
 * Founded an independent ML & software studio; design and ship AI-powered, data-driven products end-to-end, from data pipelines and model integration to production backends and deployment. **Selected projects:**  
-  * **Guesstimate** — real-time multiplayer estimation game, live on [Android](https://play.google.com/store/apps/details?id=tech.leverai.guesstimate) and [iOS](https://apps.apple.com/ca/app/guesstimate-not-trivia/id6756033242). Built an **LLM-native ETL pipeline** producing 1k+ semantically unique, high-quality questions; a **low-latency, high-consistency** multiplayer backend; **end-to-end distributed tracing**; and **GitFlow CI/CD** across dev/prod.   
-    * **Stack:** FastAPI, LangChain, Firestore, Postgres/pgvector, OpenTelemetry, Flutter.  
-  * **ThermoPulse** *(in progress)*: industrial cold-chain monitoring with time-series analytics and early fault detection.  
-  * **Sanad** *(in progress)*: **RAG** and temporal citator over 300k scanned Syrian-law PDFs, tracking amendments and repeals across legal history. The current OCR pipeline cuts the character error rate from 53.8% to 13.1%.
+  * **Rush Hour Replay** *(in progress)*: built a streaming ML benchmark over a 44M-ride NYC dataset, using **Kafka**, **Spark** Structured Streaming, and **Delta Lake** for deterministic replay, end-to-end lineage, idempotent recovery, ETA modeling, and reconciled throughput/latency evaluation.  
+  * **Guesstimate**: real-time multiplayer estimation game, live on [Android](https://play.google.com/store/apps/details?id=tech.leverai.guesstimate) and [iOS](https://apps.apple.com/ca/app/guesstimate-not-trivia/id6756033242). Built an **LLM-native ETL pipeline** producing 1k+ semantically unique, quality-filtered questions; a **low-latency, high-consistency** multiplayer backend; **end-to-end distributed tracing** for cross-service observability; and **GitFlow CI/CD** with automated unit, integration, and smoke tests across dev/prod.   
+  * **ThermoPulse** *(in progress)*: industrial cold-chain monitoring with time-series analytics and early fault detection.
 
-**Pison Technology							     		          Oct 2022 \- Dec 2025**  
+**Pison Technology							     		         Oct 2022 \- Dec 2025**  
 *Machine Learning Engineer III* (promoted from Machine Learning Engineer, Apr 2025\)
 
-* Owned a sleep-stage classification model end-to-end: **improved previously-deployed model’s macro F1 by 15%** across 1,200+ TensorFlow experiments, **mitigated class imbalance** with cost-sensitive and contrastive losses, designed a **custom gating layer** that lifted accuracy while shrinking the feature set by an order of magnitude, **made inference 3× faster**, and shipped **SPI-based drift monitoring** to trigger automated re-training alerts.  
+* Owned a sleep-stage classification model end-to-end: **improved previously-deployed model’s macro F1 by 15%** across 1,200+ TensorFlow experiments, **mitigated class imbalance** with cost-sensitive and contrastive losses, designed a **custom gating layer** that lifted accuracy while shrinking the feature set by an order of magnitude, **made inference 3× faster**, and shipped **PSI-based drift monitoring** to trigger automated re-training alerts.  
 * Built real-time biosignal **gesture-detection** models; wrote **Cythonized** extension modules and vectorized bottleneck functions, sharply accelerating both online inference and offline modeling.  
 * Implemented a SOTA **domain-invariant classification network** with adversarial training in PyTorch from the original paper (3-person internal "Hackaweek").  
 * **Sped up a batch ETL pipeline 190×** with Apache Beam; led **BigQuery** adoption, choosing partitioning and clustering to match query patterns.  
